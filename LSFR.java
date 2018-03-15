@@ -158,7 +158,7 @@ public class LSFR extends javax.swing.JFrame {
         // TODO add your handling code here:
         int newState = (currentState % (int) Math.pow(2, 17)) << 1;
         if (currentState != 0) {
-            newState += currentState % 2 ^ (currentState >> 5) % 2 ^ (currentState >> 17) % 2;
+            newState += currentState & 0x1 ^ (currentState >> 5) % 0x1 ^ (currentState >> 17) % 0x1;
         } else {
             newState += 1;
         }
